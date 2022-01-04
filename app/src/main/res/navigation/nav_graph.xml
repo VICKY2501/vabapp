@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/defaultpage2">
+    <fragment
+        android:id="@+id/defaultpage2"
+        android:name="com.vaibhav.delshop.Defaultpage"
+        android:label="fragment_defaultpage"
+        tools:layout="@layout/fragment_defaultpage" >
+        <action
+            android:id="@+id/action_defaultpage2_to_recipe2"
+            app:destination="@id/recipe2" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipe2"
+        android:name="com.vaibhav.delshop.Recipes"
+        android:label="fragment_recipe"
+        tools:layout="@layout/fragment_recipe" >
+        <action
+            android:id="@+id/action_recipe2_to_details2"
+            app:destination="@id/details2" />
+    </fragment>
+    <fragment
+        android:id="@+id/details2"
+        android:name="com.vaibhav.delshop.Details"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
+    <fragment
+        android:id="@+id/about_us2"
+        android:name="com.vaibhav.delshop.About_us"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" />
+</navigation>

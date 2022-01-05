@@ -1,5 +1,7 @@
 package Dataclasses
 
+import java.io.Serializable
+
 data class Recipe(
     val calories: Double,
     val cautions: List<String>,
@@ -21,4 +23,4 @@ data class Recipe(
     val uri: String,
     val url: String,
     val yield: Double
-)
+): Serializable

@@ -14,7 +14,7 @@
     tools:context=".Recipes">
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             >
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -52,15 +52,15 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"
                     listData="@{viewModel.img}"
-                    android:layout_width="429dp"
-                    tools:listitem="@layout/recyclerdata"
-                    android:layout_height="583dp"
+                    android:layout_width="407dp"
+                    android:layout_height="match_parent"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:spanCount="1"
-                    tools:itemCount="10" />
+                    tools:itemCount="10"
+                    tools:listitem="@layout/recyclerdata" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </FrameLayout>

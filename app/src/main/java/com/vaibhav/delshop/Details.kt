@@ -33,8 +33,14 @@ lateinit var currhit:Hit
             error(R.drawable.img)
         }
         tax1.text=currhit.recipe.label
-        val resultsIng:String=currhit.recipe.ingredientLines.toString()
-        tax2.text= resultsIng.subSequence(2,resultsIng.length-1)
+        val resultsIng=currhit.recipe.ingredientLines
+        var tx2:String=""
+        for(gh in resultsIng)
+        {
+            tx2+=gh
+            tx2+='\n'
+        }
+        tax2.text= tx2
         val b1=view.findViewById<Button>(R.id.button)
         b1.setOnClickListener {
             val bundle = Bundle().apply {

@@ -10,13 +10,10 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 
 
-
+//Not in Current Use
 class Defaultpage : Fragment() {
    private lateinit var navontrollers:NavController
-
-
-
-    override fun onCreateView(
+  override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
@@ -29,7 +26,7 @@ class Defaultpage : Fragment() {
          val bt=view.findViewById<ImageButton>(R.id.imageButton3)
         bt.setOnClickListener {
             navontrollers=Navigation.findNavController(view)
-            navontrollers.navigate(R.id.action_defaultpage2_to_recipe2)
+          //  navontrollers.navigate(R.id.action_defaultpage2_to_recipe2)
         }
     }
 

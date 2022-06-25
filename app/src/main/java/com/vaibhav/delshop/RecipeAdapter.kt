@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.vaibhav.delshop.databinding.RecyclerdataBinding
 
-class RecipeAdapter(val listener:Rvlisten) :
+class RecipeAdapter(val listener: Rvlisten) :
     ListAdapter<Hit, RecipeAdapter.FoodPhotosViewHolder>(DiffCallback) {
 
     /**
@@ -22,8 +22,8 @@ class RecipeAdapter(val listener:Rvlisten) :
         fun bind(foodPhoto: Hit) {
             binding.photo = foodPhoto.recipe
             binding.executePendingBindings()
-            itemView.setOnClickListener{
-            listener.onclicked(foodPhoto)
+            itemView.setOnClickListener {
+                listener.onclicked(foodPhoto)
             }
         }
     }
@@ -62,7 +62,7 @@ class RecipeAdapter(val listener:Rvlisten) :
         holder.bind(foodPhoto)
     }
 }
-interface Rvlisten
-{
-    fun onclicked(hit:Hit)
+
+interface Rvlisten {
+    fun onclicked(hit: Hit)
 }

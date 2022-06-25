@@ -3,21 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/defaultpage2">
-    <fragment
-        android:id="@+id/defaultpage2"
-        android:name="com.vaibhav.delshop.Defaultpage"
-        android:label="fragment_defaultpage"
-        tools:layout="@layout/fragment_defaultpage" >
-        <action
-            android:id="@+id/action_defaultpage2_to_recipe2"
-            app:destination="@id/recipe2" />
-    </fragment>
+    app:startDestination="@id/recipe2">
     <fragment
         android:id="@+id/recipe2"
         android:name="com.vaibhav.delshop.Recipes"
         android:label="fragment_recipe"
-        tools:layout="@layout/fragment_recipe" >
+        tools:layout="@layout/fragment_recipe">
         <action
             android:id="@+id/action_recipe2_to_details2"
             app:destination="@id/details2" />
@@ -26,7 +17,7 @@
         android:id="@+id/details2"
         android:name="com.vaibhav.delshop.Details"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" >
+        tools:layout="@layout/fragment_details">
         <action
             android:id="@+id/action_details2_to_webview2"
             app:destination="@id/webview2" />

@@ -22,7 +22,7 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
     imgUrl?.let {
         val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
         imgView.load(imgUri) {
-            placeholder(R.drawable.img_1)
+            placeholder(R.drawable.ld)
             error(R.drawable.img)
         }
     }

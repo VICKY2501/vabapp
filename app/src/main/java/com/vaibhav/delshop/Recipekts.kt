@@ -2,6 +2,7 @@ package com.vaibhav.delshop
 
 import Dataclasses.Hit
 import android.os.Bundle
+import android.renderscript.ScriptGroup
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -22,11 +23,12 @@ import java.util.*
 class Recipes : Fragment(),Rvlisten{
     private  val sharedViewModel: FoodViewModel by activityViewModels()
     lateinit var ans:String
+    lateinit var binding:FragmentRecipeBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding= FragmentRecipeBinding.inflate(inflater)
+         binding= FragmentRecipeBinding.inflate(inflater)
         binding.lifecycleOwner = this
 
         // Giving the binding access to the OverviewViewModel
@@ -44,12 +46,16 @@ class Recipes : Fragment(),Rvlisten{
         super.onViewCreated(view, savedInstanceState)
         val txt =view.findViewById<EditText>(R.id.foods)
         val bst =view.findViewById<ImageButton>(R.id.imageButton)
-        sharedViewModel.img.observe(viewLifecycleOwner,{
-            if(it.isEmpty())
-            {
-                Toast.makeText(context,"Invalid Search Results",Toast.LENGTH_SHORT).show()
+        sharedViewModel.img.observe(viewLifecycleOwner) {
+            if (it.isEmpty()) {
+                Toast.makeText(context, "Invalid Search Results", Toast.LENGTH_SHORT).show()
             }
-        })
+            else{
+                binding.recyclerView.visibility = View.VISIBLE
+                binding.plates.visibility = View.INVISIBLE
+                binding.platesText.visibility = View.INVISIBLE
+            }
+        }
         bst.setOnClickListener {
             ans=txt.text.toString()
             ans=ans.lowercase()
@@ -66,9 +72,14 @@ class Recipes : Fragment(),Rvlisten{
             Log.d("msd",ansAdd)
             if(ansAdd.isEmpty())
             {
-                Toast.makeText(context,"Enter Something",Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,"Please Enter Something",Toast.LENGTH_SHORT).show()
             }
-             sharedViewModel.getPhoto(ansAdd)
+            else {
+                binding.recyclerView.visibility = View.VISIBLE
+                binding.plates.visibility = View.INVISIBLE
+                binding.platesText.visibility = View.INVISIBLE
+                sharedViewModel.getPhoto(ansAdd)
+            }
         }
     }
     companion object {
@@ -78,8 +89,7 @@ class Recipes : Fragment(),Rvlisten{
                 arguments = Bundle().apply {
                 }
             }
-    }
-
+        }
     override fun onclicked(hit: Hit) {
         val bundle = Bundle().apply {
             putSerializable("hit",hit);
